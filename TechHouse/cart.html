@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Savat - TechHouse</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-pro sticky-top border-bottom">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                TechHouse<span class="brand-dot">.</span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navMain">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-lg-2">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Bosh menu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="products.html">Kategoriyalar</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About us</a></li>
+                </ul>
+
+                <div class="d-flex align-items-center gap-2">
+                    <div class="nav-search-wrap">
+                        <i class="bi bi-search"></i>
+                        <input id="navSearch" class="form-control form-control-sm nav-search" placeholder="Qidirish..."
+                            aria-label="Qidirish">
+                    </div>
+
+                    <a href="cart.html" class="btn btn-outline-secondary btn-sm icon-btn position-relative"
+                        aria-label="Cart">
+                        <i class="bi bi-cart3"></i>
+                        <span id="cartCount"
+                            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+                    </a>
+
+                    <a href="login.html" class="btn btn-primary btn-sm">Login</a>
+                    <a href="register.html" class="btn btn-outline-secondary btn-sm icon-btn" aria-label="Register">
+                        <i class="bi bi-person"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="section">
+        <div class="container">
+            <div class="page-head mb-3">
+                <div class="d-flex justify-content-between align-items-start flex-wrap gap-2">
+                    <div>
+                        <h2 class="mb-1">Savat</h2>
+                        <div class="small-muted">Mahsulotlarni tekshiring va rasmiylashtirishga o'ting</div>
+                    </div>
+                    <span class="mini-badge">Kafolat • Yetkazib berish • Pickup</span>
+                </div>
+
+                <div class="steps mt-3">
+                    <span class="step-pill active">1-Savat</span>
+                    <span class="step-pill">2-Checkout</span>
+                    <span class="step-pill">3-Tasdiq</span>
+                </div>
+            </div>
+
+            <div class="row g-3">
+                <div class="col-12 col-lg-7">
+                    <div id="cartList"></div>
+
+                    <div id="emptyBox" class="d-none">
+                        <div class="card card-clean soft-shadow p-4 text-center">
+                            <div class="fs-5 fw-bold mb-1">Savat bo'sh</div>
+                            <div class="small-muted mb-3">Mahsulot qo'shing va buyurtmani rasmiylashtiring.</div>
+                            <a href="products.html" class="btn btn-primary">Mahsulotlarni ko'rish</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-5">
+                    <div class="position-sticky" style="top: 90px;">
+                        <div class="card card-clean soft-shadow p-3">
+                            <div class="fw-bold mb-2">Buyurtma xulosasi</div>
+
+                            <div id="summary" class="small-muted mb-2"></div>
+
+                            <div class="summary-row"><span>Yetkazib berish</span><span>Bepul</span></div>
+                            <div class="summary-row"><span>Chegirma</span><span>—</span></div>
+
+                            <hr class="my-2">
+                            <div class="summary-total">
+                                <span>Jami</span><span><span id="totalSum">0</span> so'm</span>
+                            </div>
+
+                            <a href="checkout.html" class="btn btn-success w-100 mt-3">Checkout'ga o'tish</a>
+                            <a href="products.html" class="btn btn-outline-secondary w-100 mt-2">Yana xarid qilish</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <footer class="footer-dark py-4 mt-5">
+        <div class="container">
+            <div class="row g-3">
+                <div class="col-12 col-md-4">
+                    <div class="footer-title">TechHouse</div>
+                    <div>Maishiy texnika va aqlli uy qurilmalari do'koni.</div>
+                    <div class="mt-2">Ish vaqti: Du - Sh 09:00 - 21:00</div>
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <div class="footer-title">Kontakt</div>
+                    <div>📞 +998 97 552 40 50</div>
+                    <div>📍 Toshkent, Sergeli</div>
+                    <div>✉️ info@techhouse.uz</div>
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <div class="footer-title">Foydali havolalar</div>
+                    <div><a href="#">Maxfiylik siyosati</a></div>
+                    <div><a href="#">Foydalanish shartlari</a></div>
+                    <div class="mt-2">
+                        <a href="#">Instagram</a> · <a href="#">Telegram</a> · <a href="#">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom mt-3">© 2026 TechHouse. Barcha huquqlar himoyalangan.</div>
+        </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/navbar.js"></script>
+
+    <script>
+        const cartList = document.getElementById("cartList");
+        const totalEl = document.getElementById("totalSum");
+        const summaryEl = document.getElementById("summary");
+        const emptyBox = document.getElementById("emptyBox");
+
+        function updateBadge() {
+            const badge = document.getElementById("cartCount");
+            if (badge) badge.textContent = Cart.cartCount();
+        }
+
+        function renderCart() {
+            const cart = Cart.readCart();
+            cartList.innerHTML = "";
+            summaryEl.innerHTML = "";
+            let total = 0;
+
+            if (cart.length === 0) {
+                emptyBox.classList.remove("d-none");
+                totalEl.textContent = "0";
+                updateBadge();
+                return;
+            }
+            emptyBox.classList.add("d-none");
+
+            cart.forEach(item => {
+                const p = PRODUCTS.find(x => x.id === item.id);
+                if (!p) return;
+
+                total += p.price * item.qty;
+                summaryEl.innerHTML += `<div>${p.name} x${item.qty}</div>`;
+
+                cartList.innerHTML += `
+        <div class="card card-clean soft-shadow p-2 mb-2">
+          <div class="d-flex justify-content-between align-items-center gap-2">
+            <div class="d-flex align-items-center gap-2">
+              <img class="cart-thumb" src="${p.img}" alt="${p.name}">
+              <div>
+                <div class="fw-semibold">${p.name}</div>
+                <div class="small-muted">${p.category} • ${formatSum(p.price)} so'm</div>
+              </div>
+            </div>
+
+            <div class="d-flex align-items-center gap-2">
+              <button class="btn btn-sm btn-outline-secondary" onclick="Cart.dec(${p.id}); renderCart();">-</button>
+              <b style="min-width:22px;text-align:center;">${item.qty}</b>
+              <button class="btn btn-sm btn-outline-secondary" onclick="Cart.inc(${p.id}); renderCart();">+</button>
+              <button class="btn btn-sm btn-outline-danger" onclick="Cart.removeItem(${p.id}); renderCart();">
+                <i class="bi bi-trash"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+            });
+
+            totalEl.textContent = formatSum(total);
+            updateBadge();
+        }
+
+        renderCart();
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

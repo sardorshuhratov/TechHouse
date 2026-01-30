@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login - TechHouse</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-light border-bottom">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">TechHouse<span class="brand-dot">.</span></a>
+
+            <div class="d-flex gap-2">
+                <a href="products.html" class="btn btn-outline-secondary btn-sm">Mahsulotlar</a>
+                <a href="register.html" class="btn btn-outline-secondary btn-sm">
+                    <i class="bi bi-person-plus"></i> Register
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="section">
+        <div class="container" style="max-width: 460px;">
+            <div class="card card-clean p-4">
+                <h3 class="mb-1">Login</h3>
+                <div class="small-muted mb-3">Accountingizga kiring.</div>
+
+                <form id="loginForm">
+                    <label class="form-label" for="loginEmail" style="cursor: pointer;">Email</label>
+                    <input id="loginEmail" type="email" class="form-control mb-3" placeholder="example@gmail.com"
+                        required>
+
+                    <label for="loginPass" class="form-label" style="cursor: pointer;">Parol</label>
+                    <div class="input-group mb-3">
+                        <input id="loginPass" type="password" class="form-control" placeholder="••••••••" required>
+                        <button class="btn btn-outline-secondary" type="button" id="togglePass">
+                            <i class="bi bi-eye"></i>
+                        </button>
+                    </div>
+
+                    <button class="btn btn-primary w-100">Kirish</button>
+                    <div id="authMsg" class="mt-2"></div>
+
+                    <div class="text-center mt-3 small-muted">
+                        Account yo'qmi? <a href="register.html">Ro'yxatdan o'ting</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-dark py-4 mt-5">
+        <div class="container">
+            <div class="row g-3">
+                <div class="col-12 col-md-4">
+                    <div class="footer-title">TechHouse</div>
+                    <div>Maishiy texnika va aqlli uy qurilmalari do'koni.</div>
+                    <div class="mt-2">Ish vaqti: Du - Sh 09:00 - 21:00</div>
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <div class="footer-title">Kontakt</div>
+                    <div>📞 +998 97 552 40 50</div>
+                    <div>📍 Toshkent, Sergeli</div>
+                    <div>✉️ info@techhouse.uz</div>
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <div class="footer-title">Foydali havolalar</div>
+                    <div><a href="#">Maxfiylik siyosati</a></div>
+                    <div><a href="#">Foydalanish shartlari</a></div>
+                    <div class="mt-2">
+                        <a href="#">Instagram</a> ·
+                        <a href="#">Telegram</a> ·
+                        <a href="#">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom mt-3">
+                © 2026 TechHouse. Barcha huquqlar himoyalangan.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById("togglePass").onclick = () => {
+            const inp = document.getElementById("loginPass");
+            inp.type = inp.type === "password" ? "text" : "password";
+        };
+    </script>
+
+    <script src="js/auth.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

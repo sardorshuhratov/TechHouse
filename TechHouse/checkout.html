@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Checkout - TechHouse</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-pro sticky-top border-bottom">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                TechHouse<span class="brand-dot">.</span>
+            </a>
+            <div class="d-flex gap-2">
+                <a href="cart.html" class="btn btn-outline-secondary btn-sm">← Savat</a>
+            </div>
+        </div>
+    </nav>
+    <section class="section">
+        <div class="container">
+
+            <div class="page-head mb-3">
+                <div class="d-flex justify-content-between align-items-start flex-wrap gap-2">
+                    <div>
+                        <h2 class="mb-1">Checkout</h2>
+                        <div class="small-muted">Ma'lumotlarni kiriting va buyurtmani tasdiqlang</div>
+                    </div>
+                    <span class="mini-badge">Xavfsiz checkout (demo)</span>
+                </div>
+
+                <div class="steps mt-3">
+                    <span class="step-pill">1-Savat</span>
+                    <span class="step-pill active">2-Checkout</span>
+                    <span class="step-pill">3-Tasdiq</span>
+                </div>
+            </div>
+
+            <div class="row g-3">
+                <div class="col-12 col-lg-7">
+                    <div class="card card-clean soft-shadow p-3">
+                        <div class="fw-bold mb-2">Buyurtma ma'lumotlari</div>
+
+                        <label class="form-label">Ism</label>
+                        <input id="name" class="form-control mb-2" placeholder="Ismingiz">
+
+                        <label class="form-label">Telefon</label>
+                        <input id="phone" class="form-control mb-2" placeholder="+998 91 234 56 78">
+
+                        <label class="form-label">Manzil</label>
+                        <input id="address" class="form-control mb-2" placeholder="Toshkent, ...">
+
+                        <label class="form-label">Yetkazib berish turi</label>
+                        <select id="deliveryType" class="form-select mb-3">
+                            <option value="delivery">Uyga yetkazib berish</option>
+                            <option value="pickup">Do'kondan olib ketish (Pickup)</option>
+                        </select>
+
+                        <button class="btn btn-success w-100" id="orderBtn">Buyurtmani tasdiqlash</button>
+                        <div id="msg" class="mt-2"></div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-5">
+                    <div class="position-sticky" style="top: 90px;">
+                        <div class="card card-clean soft-shadow p-3">
+                            <div class="fw-bold mb-2">Xulosa</div>
+                            <div id="summary" class="small-muted mb-2"></div>
+
+                            <div class="summary-row"><span>Yetkazib berish</span><span>Bepul</span></div>
+                            <hr class="my-2">
+                            <div class="summary-total">
+                                <span>Jami</span><span><span id="total">0</span> so'm</span>
+                            </div>
+
+                            <div class="small-muted mt-2">
+                                Buyurtma tasdiqlangach savat tozalanadi va bosh sahifaga qaytasiz.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="footer-dark py-4 mt-5">
+        <div class="container">
+            <div class="footer-bottom">© 2026 TechHouse. Barcha huquqlar himoyalangan.</div>
+        </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/cart.js"></script>
+
+    <script>
+        const sumBox = document.getElementById("summary");
+        const totalEl = document.getElementById("total");
+        const msg = document.getElementById("msg");
+
+        function renderSummary() {
+            const cart = Cart.readCart();
+            let total = 0;
+            sumBox.innerHTML = "";
+
+            if (cart.length === 0) {
+                sumBox.innerHTML = "<div class='text-danger'>Savat bo'sh. Avval mahsulot qo'shing.</div>";
+                totalEl.textContent = "0";
+                return;
+            }
+
+            cart.forEach(i => {
+                const p = PRODUCTS.find(x => x.id === i.id);
+                if (!p) return;
+                total += p.price * i.qty;
+                sumBox.innerHTML += `<div>${p.name} x${i.qty}</div>`;
+            });
+
+            totalEl.textContent = formatSum(total);
+        }
+
+        renderSummary();
+
+        document.getElementById("orderBtn").onclick = () => {
+            const cart = Cart.readCart();
+            const name = document.getElementById("name").value.trim();
+            const phone = document.getElementById("phone").value.trim();
+            const address = document.getElementById("address").value.trim();
+
+            if (cart.length === 0) {
+                msg.textContent = "Savat bo'sh. Avval mahsulot qo'shing.";
+                msg.className = "text-danger mt-2";
+                return;
+            }
+            if (!name || !phone || !address) {
+                msg.textContent = "Barcha maydonlarni to'ldiring";
+                msg.className = "text-danger mt-2";
+                return 
+            }
+
+            Cart.clearCart();
+            msg.textContent = "Buyurtma qabul qilindi ✅ Bosh sahifaga yo'naltirilmoqda...";
+            msg.className = "text-success mt-2";
+
+            setTimeout(() => {
+                location.href = "index.html";
+            }, 1500);
+        };
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
